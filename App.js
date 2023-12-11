@@ -5,7 +5,6 @@ import Contact from "./src/pages/Contact"
 import Project from "./src/pages/Project"
 import Header from "./src/components/Header"
 import ErrorPage from "./src/pages/ErrorPage"
-import { loader as projectLoader } from "./src/pages/Project"
 
 const router = createBrowserRouter([
     {

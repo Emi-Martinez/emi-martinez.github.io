@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ProjectData } from "../../public/ProjectData"
-import {LeftCarouselArrow} from "../icons/LeftCarouselArrow.svg"
-import {RightCarouselArrow} from "../icons/RightCarouselArrow.svg"
+import LeftCarouselArrow from "../icons/LeftCarouselArrow.svg"
+import RightCarouselArrow from "../icons/RightCarouselArrow.svg"
 
 export default function Carousel(){
     const [imgIndex, setImgIndex] = useState(1)

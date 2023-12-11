@@ -1,4 +1,4 @@
-import {ListBulletPoint} from "../icons/ListBulletPoint.svg"
+import ListBulletPoint from "../icons/ListBulletPoint.svg"
 
 export default function ListItem({text}){
     return(
