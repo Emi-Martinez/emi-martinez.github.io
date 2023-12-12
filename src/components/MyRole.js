@@ -1,8 +1,10 @@
-import { ProjectData } from "../../public/ProjectData"
 import ListItem from "./ListItem"
+import { useSelector } from "react-redux"
 
 export default function MyRole(){
-    const roleInProject = ProjectData[0].myRoleInProject.map((role, i) => ( <ListItem key={i} text={role} /> )) 
+    const project = useSelector(state => state.project.data)
+
+    const roleInProject = project.myRoleInProject.map((role, i) => ( <ListItem key={i} text={role} /> ))
 
     return(
         <div>

@@ -1,12 +1,14 @@
 import Carousel from "../components/Carousel"
-import { ProjectData } from "../../public/ProjectData"
+import { useSelector } from "react-redux"
 
 export default function ProjectHeroArea(){
+    const project = useSelector(state => state.project.data)
+
     return(
         <div>
             <Carousel />
-            <h4>{ProjectData[0].name}</h4>
-            <p>{ProjectData[0].description}</p>
+            <h4>{project.name}</h4>
+            <p>{project.description}</p>
         </div>
     )
 }

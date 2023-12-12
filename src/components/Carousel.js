@@ -1,14 +1,14 @@
 import { useState } from "react"
-import { ProjectData } from "../../public/ProjectData"
 import LeftCarouselArrow from "../icons/LeftCarouselArrow.svg"
 import RightCarouselArrow from "../icons/RightCarouselArrow.svg"
+import { useSelector } from "react-redux"
 
 export default function Carousel(){
-    const [imgIndex, setImgIndex] = useState(1)
-    const [projectURL,setProjectURL] = useState(ProjectData[1].imgsURL[imgIndex])
+    const [imgIndex, setImgIndex] = useState(0)
+    const project = useSelector(state => state.project.data)
 
     const handleNextButton = ()=>{
-        if (imgIndex < (ProjectData[1].imgsURL.length - 1)){
+        if (imgIndex < (project.imgsURL.length - 1)){
             setImgIndex(index => index + 1)
         }
     }
@@ -24,7 +24,7 @@ export default function Carousel(){
             <button title="Previous Image" onClick={handlePrevButton}>
                 <LeftCarouselArrow />
             </button>
-            <img src={ProjectData[1].imgsURL[imgIndex]}></img>
+            <img src={project.imgsURL[imgIndex]}></img>
             <button title="Next Image" onClick={handleNextButton}>
                 <RightCarouselArrow />
             </button>

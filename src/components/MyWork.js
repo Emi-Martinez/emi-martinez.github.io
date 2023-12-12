@@ -2,10 +2,11 @@ import { ProjectData } from "../../public/ProjectData"
 import ProjectCard from "../components/ProjectCard"
 
 export default function MyWork(){
-    const Projects = ProjectData.map(project =>(
+    const Projects = ProjectData.map((project,i) =>(
         <ProjectCard 
             key={project.id}
             project={project}
+            index={i}
         />
     ))
     
