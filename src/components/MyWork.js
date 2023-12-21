@@ -3,6 +3,7 @@ import { ProjectData } from "../../public/ProjectData"
 import ProjectCard from "../components/ProjectCard"
 import H3 from "./style/H3"
 import Paragraph from "./style/Paragraph"
+import Borders from "./style/Borders"
 
 export default function MyWork(){
     const Projects = ProjectData.map((project,i) =>(
@@ -21,30 +22,7 @@ export default function MyWork(){
 
         margin-bottom: 148px;
     `
-    const Borders = styled.div`
-        width: 55%;
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-        border-top: 1px solid ${props => props.theme.black_25};
-        border-bottom: 1px solid ${props => props.theme.black_25};
-
-        &::before{
-            margin-top: 16px;
-            content: '';
-            border-top: 1px solid ${props => props.theme.black_25};
-            display: block;
-            width: 100%;
-        }
-        &::after{
-            margin-bottom: 16px;
-            content: '';
-            border-bottom: 1px solid ${props => props.theme.black_25};
-            display: block;
-            width: 100%;
-        }
-    `
+    
     return(
         <>
             <MyWorkHeadContainer>

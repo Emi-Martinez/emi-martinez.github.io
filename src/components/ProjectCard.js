@@ -20,7 +20,7 @@ export default function ProjectCard({project,index}){
 
         border-radius: 32px;
 
-        box-shadow: 0px 4px 8px ${props => props.theme.black_25};
+        box-shadow: 0px 4px 4px ${props => props.theme.black_25};
         order: ${props => props.invert ? 2 : 1};
     `
 
@@ -33,7 +33,6 @@ export default function ProjectCard({project,index}){
         display: flex;
         flex-direction: column;
 
-        /* margin-left: 24px; */
         ${props => props.invert ? "margin-right: 24px; text-align: end;" : "margin-left: 24px;"}
         justify-content: center;
         order: ${props => props.invert ? 1 : 2};
@@ -44,7 +43,26 @@ export default function ProjectCard({project,index}){
         border-bottom: 1px solid ${props => props.theme.black_5};
     
     `
-// Revisar cambios en H6 del boton del footer
+    const Figure = styled.div`
+        position: absolute;
+        left: 0;
+
+        z-index: -1;
+    `
+    const Triangle = styled.div`
+        width: 0;
+        height: 0;
+        border-top: 15vh solid transparent;
+        ${props => props.invert ? `border-right: 199.3vh solid ${props.backColor};`:`border-left: 199.3vh solid ${props.backColor};`}
+        border-bottom: 15vh solid ${props => props.backColor};
+    `
+    const Triangle2 = styled.div`
+        width: 0;
+        height: 0;
+        border-top: 15vh solid ${props => props.backColor};
+        ${props => props.invert ? `border-right: 199.3vh solid ${props.backColor};`:`border-left: 199.3vh solid ${props.backColor};`}
+        border-bottom: 15vh solid transparent;
+    `
 
     return(
         <CardContainer role="projectCard">
@@ -53,6 +71,10 @@ export default function ProjectCard({project,index}){
                 <HeadingContainer><H5 >{project.name}</H5></HeadingContainer>
                 <Paragraph>{project.description}</Paragraph>
                 <H6 margin-top="24px"><HeadLink to={`/projects/${index}`}>Learn more ...</HeadLink></H6>
+                <Figure >
+                    <Triangle invert={invert(index)} backColor={project.projectColor} />
+                    <Triangle2 invert={invert(index)} backColor={project.projectColor} />
+                </Figure>
             </CardTextContainer>
         </CardContainer>
     )
