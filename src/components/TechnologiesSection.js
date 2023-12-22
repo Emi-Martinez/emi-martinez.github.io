@@ -2,6 +2,8 @@ import { TechnologiesData } from "../../public/TechnologiesData"
 import TechnologyCard from "../components/TechnologyCard"
 import Borders from "./style/Borders"
 import H3 from "./style/H3"
+import TecHeaderContainer from "./style/TecHeaderContainer"
+import TechContainer from "./style/TechContainer"
 import styled from "styled-components"
 
 export default function TechnologiesSection(){
@@ -19,19 +21,19 @@ export default function TechnologiesSection(){
 //         />
 // ))
 
-    const TecHeaderContainer = styled.div`
-        display: flex;
-        flex-direction: column;
+    // const TecHeaderContainer = styled.div`
+    //     display: flex;
+    //     flex-direction: column;
 
-        align-items: center;
-    `
-    const TechContainer = styled.div`
-        display: flex;
-        justify-content: center;
-        padding: 72px 208px;
-        flex-wrap: wrap;
-        /* width: min-content; */
-    `
+    //     align-items: center;
+    // `
+    // const TechContainer = styled.div`
+    //     display: flex;
+    //     justify-content: center;
+    //     padding: 72px 208px;
+    //     flex-wrap: wrap;
+    //     /* width: min-content; */
+    // `
 
     return(
         <div data-testid='technologies'>

@@ -3,8 +3,10 @@ import Paragraph from "./style/Paragraph"
 import HeadLink from "./style/HeadLink"
 import H6 from "./style/H6"
 import styled from "styled-components"
+import { useTheme } from "styled-components"
 
 export default function ProjectCard({project,index}){
+    const theme = useTheme()
 
     const invert = (index)=>{
         if (index % 2 != 0){
@@ -20,12 +22,12 @@ export default function ProjectCard({project,index}){
 
         border-radius: 32px;
 
-        box-shadow: 0px 4px 4px ${props => props.theme.black_25};
+        box-shadow: 0px 4px 16px rgba(${props => props.theme.black_RGB}, 0.25);
         order: ${props => props.invert ? 2 : 1};
     `
 
     const CardContainer = styled.div`
-        margin: 0px 152px 96px;
+        margin: 0px 208px 96px;
 
         display: flex;
     `
@@ -69,7 +71,7 @@ export default function ProjectCard({project,index}){
             <Img src={`projects/${project.imgsURL[0]}`} role="projectImg" invert={invert(index)} />
             <CardTextContainer invert={invert(index)}>
                 <HeadingContainer><H5 >{project.name}</H5></HeadingContainer>
-                <Paragraph>{project.description}</Paragraph>
+                <Paragraph color={theme.black}>{project.description}</Paragraph>
                 <H6 margin-top="24px"><HeadLink to={`/projects/${index}`}>Learn more ...</HeadLink></H6>
                 <Figure >
                     <Triangle invert={invert(index)} backColor={project.projectColor} />

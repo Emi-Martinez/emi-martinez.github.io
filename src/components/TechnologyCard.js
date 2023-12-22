@@ -18,7 +18,7 @@ export default function TechnologyCard({technology}){
         margin-top: 56px;
         width: fit-content;
         border-radius: 32px;
-        box-shadow: 0px 4px 32px ${props => props.theme.black_25};
+        box-shadow: 0px 4px 32px rgba(${props => props.theme.black_RGB}, 0.25);
 
         &:first-child{
             margin-left: 0px;

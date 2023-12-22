@@ -1,6 +1,10 @@
 import { TechnologiesData } from "../../public/TechnologiesData"
 import TechnologyCard from "../components/TechnologyCard"
 import { useSelector } from "react-redux"
+import H3 from "./style/H3"
+import Borders from "./style/Borders"
+import TecHeaderContainer from "./style/TecHeaderContainer"
+import TechContainer from "./style/TechContainer"
 
 export default function ProjectTechSection(){
     const project = useSelector(state => state.project.data)
@@ -15,10 +19,14 @@ export default function ProjectTechSection(){
 
     return(
         <div data-testid='technologies'>
-            <h3>Technologies used in this project</h3> {/* bold */}
-            <div>
+            <TecHeaderContainer>
+                <Borders>
+                    <H3 bold="true" margin="48px 0px;">Technologies used in this project</H3> {/* bold */}
+                </Borders>
+            </TecHeaderContainer>
+            <TechContainer>
                 {techs}
-            </div>
+            </TechContainer>
         </div>
     )
 }

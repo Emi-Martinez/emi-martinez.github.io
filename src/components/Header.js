@@ -21,9 +21,9 @@ export default function Header(){
         <div>
             <HeaderContainer>
                 <LinksContainer>
-                    <H7><HeadLink act={path == '/' ? 'true' : ""} to="/">Home</HeadLink></H7>
-                    <H7><HeadLink act={path == '/about' ? 'true' : ""} to="/about">About</HeadLink></H7>
-                    <H7><HeadLink act={path == '/contact' ? 'true' : ""} to="/contact">Contact</HeadLink></H7>
+                    <H7><HeadLink hoverAct="true" act={path == '/' ? 'true' : ""} to="/">Home</HeadLink></H7>
+                    <H7><HeadLink hoverAct="true" act={path == '/about' ? 'true' : ""} to="/about">About</HeadLink></H7>
+                    <H7><HeadLink hoverAct="true" act={path == '/contact' ? 'true' : ""} to="/contact">Contact</HeadLink></H7>
                 </LinksContainer>
                 <div>
                     <H7 color="primary">emi.martinez9696@gmail.com</H7> {/* Es un h7, hay que crearlo */}                

@@ -12,7 +12,7 @@ const LinkButton = styled(Link)`
 
     font-family: 'Nunito';
 
-    box-shadow: 0px 16px 16px ${props => props.theme.black_25};
+    box-shadow: 0px 16px 16px rgba(${props => props.theme.black_RGB}, 0.25);
     
     transition: all .3s ease;
 
