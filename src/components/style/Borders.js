@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Borders = styled.div`
-        width: 55%;
+        width: ${props => props.device == "phone" ? "90%" : props.device == "tablet" ? "75.3%" : "55%"};
         display: flex;
         flex-direction: column;
 

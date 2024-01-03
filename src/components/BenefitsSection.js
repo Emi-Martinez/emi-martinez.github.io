@@ -5,58 +5,65 @@ import QualitySVG from '../icons/Quality.svg'
 import H3 from './style/H3'
 import H5 from './style/H5'
 import Paragraph from './style/Paragraph'
+import { useSelector } from 'react-redux'
 
 export default function BenefitsSection(){
     const BenefitsContainer = styled.div`
-        margin: 0px 208px 256px;
+        margin: ${props => props.device == "phone" ? "0px 32px 136px;" : props.device == "tablet" ? "0px 136px 156px" : "0px 208px 256px"};
     `
-
     const BenefitsBodyContainer = styled.div`
         display: flex;
         justify-content: space-between;
+        ${props => props.device == "phone" ? "display: flex; flex-direction: column;" : ""};
     `
     const BenefitContainer = styled.div`
-        width: 336px;
+        width: ${props => props.device == "phone" ? "" : "336px"};
         display: flex;
         flex-direction: column;
+        ${props => props.device == "phone" ? "align-items: center; text-align: center; margin-bottom: 56px" : ""};
     `
     const DeliveryIcon = styled(DeliverySVG)`
         color: ${props => props.theme.secondaryColor};
         transform: scale(3);
-        margin-bottom: 24px;
-        margin-left: 19px;
+        margin-bottom: ${props => props.device == "phone" ? "8px" : "24px"};
+        margin-left: ${props => props.device == "phone" ? "" : "19px"};
     `
     const ProfIcon = styled(ProfSVG)`
         color: ${props => props.theme.secondaryColor};
         transform: scale(3);
-        margin-bottom: 24px;
-        margin-left: 19px;
+        margin-bottom: ${props => props.device == "phone" ? "8px" : "24px"};
+        margin-left: ${props => props.device == "phone" ? "" : "19px"};
     `
     const QualityIcon = styled(QualitySVG)`
         color: ${props => props.theme.secondaryColor};
         transform: scale(3);
-        margin-bottom: 24px;
-        margin-left: 19px;
+        margin-bottom: ${props => props.device == "phone" ? "8px" : "24px"};
+        margin-left: ${props => props.device == "phone" ? "" : "19px"};
     `
-    
+    const device = useSelector(state => state.device.data)
+
+    const h3width = (device == "phone" ? "" : "576px");
+    const h3MarginBottom = (device == "phone" ? "48px" : "64px;");
+    const h5Margin = (device == "phone" ? "16px 0px 8px" : "24px 0px;");
+
     return(
-        <BenefitsContainer>
-            <H3 width="576px;" margin-bottom="64px;">No matter the size of your project, you will always get:</H3>
-            <BenefitsBodyContainer>
-                <BenefitContainer>
-                    <ProfIcon />
-                    <H5 margin="24px 0px;">Professionalism</H5>
-                    <Paragraph>I will never false promises you something that i can’t do or build</Paragraph> 
+        <BenefitsContainer device={device}>
+            <H3 device={device} width={h3width} margin-bottom={h3MarginBottom}>No matter the size of your project, you will always get:</H3>
+            <BenefitsBodyContainer device={device}>
+                <BenefitContainer device={device}>
+                    <ProfIcon device={device} />
+                    <H5 device={device} margin={h5Margin}>Professionalism</H5>
+                    <Paragraph device={device}>I will never false promises you something that i can’t do or build</Paragraph> 
                 </BenefitContainer>
-                <BenefitContainer>
-                    <DeliveryIcon />
-                    <H5 margin="24px 0px;">On-time delivery</H5>
-                    <Paragraph>I know time is money and i don’t pretend to waste yours or mine</Paragraph>
+                <BenefitContainer device={device}>
+                    <DeliveryIcon device={device} />
+                    <H5 device={device} margin={h5Margin}>On-time delivery</H5>
+                    <Paragraph device={device}>I know time is money and i don’t pretend to waste yours or mine</Paragraph>
                 </BenefitContainer>
-                <BenefitContainer>
-                    <QualityIcon />
-                    <H5 margin="24px 0px;">Quality</H5>
-                    <Paragraph>The performance and clarity of my code is foundational to my work</Paragraph>
+                <BenefitContainer device={device}>
+                    <QualityIcon device={device} />
+                    <H5 device={device} margin={h5Margin}>Quality</H5>
+                    <Paragraph device={device}>The performance and clarity of my code is foundational to my work</Paragraph>
                 </BenefitContainer>
             </BenefitsBodyContainer>
          </BenefitsContainer>

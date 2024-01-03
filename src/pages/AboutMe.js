@@ -3,9 +3,7 @@ import BenefitsSection from "../components/BenefitsSection"
 import TechnologiesSection from "../components/TechnologiesSection"
 import ContactMeFooter from "../components/ContactMeFooter"
 
-export default function AboutMe(){
-
-    
+export default function AboutMe(){    
     return(
         <div role="main">
             <AboutMeHeroArea />

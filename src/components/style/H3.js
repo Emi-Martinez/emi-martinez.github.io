@@ -6,8 +6,8 @@ const H3 = styled.h3`
     : `color: ${props.theme.black};`}
     
     font-weight: ${props => props.bold == 'true' ? `bold` : `lighter`};
-    font-size: 60px;
-    line-height: 72px;
+    font-size: ${props => props.device == "phone" ? "35px" : props.device == "tablet" ? "51px" : "60px"};
+    line-height:${props => props.device == "phone" ? "47px" : props.device == "tablet" ? "63px" : "72px"};
     margin: 0px;
 
     ${props => props}

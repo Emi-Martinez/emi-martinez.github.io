@@ -2,7 +2,7 @@ export const QAData = [
     {
         id:1,
         question: "Do you make designs?",
-        answer: "No, currently i'm not designing websites or applications."
+        answer: "No, currently i’m not designing websites or applications."
     },
     {
         id:2,

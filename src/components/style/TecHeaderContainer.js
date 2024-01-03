@@ -5,6 +5,7 @@ const TecHeaderContainer = styled.div`
     flex-direction: column;
 
     align-items: center;
+    text-align: center;
 `
 
 export default TecHeaderContainer

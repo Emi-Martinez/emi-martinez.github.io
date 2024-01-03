@@ -8,23 +8,27 @@ import TechContainer from "./style/TechContainer"
 
 export default function ProjectTechSection(){
     const project = useSelector(state => state.project.data)
-    
+    const device = useSelector(state => state.device.data)
+
     const techs = TechnologiesData.map(
-        (tech) => (project.idTechInThisProyect.includes(tech.id) ? 
+        (tech,i) => (project.idTechInThisProyect.includes(tech.id) ? 
         <TechnologyCard
-            key={tech.id} 
+            key={tech.id}
             technology={tech}
+            pos={i}
+            pag="project"
         /> : null)
     )
+    
 
     return(
         <div data-testid='technologies'>
             <TecHeaderContainer>
-                <Borders>
-                    <H3 bold="true" margin="48px 0px;">Technologies used in this project</H3> {/* bold */}
+                <Borders device={device}>
+                    <H3 device={device} bold="true" margin="48px 0px;">Technologies used in this project</H3> {/* bold */}
                 </Borders>
             </TecHeaderContainer>
-            <TechContainer>
+            <TechContainer device={device}>
                 {techs}
             </TechContainer>
         </div>

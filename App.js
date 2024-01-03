@@ -3,13 +3,15 @@ import Home from "./src/pages/Home"
 import AboutMe from "./src/pages/AboutMe"
 import Contact from "./src/pages/Contact"
 import Project from "./src/pages/Project"
-import Header from "./src/components/Header"
+import Header from "./src/components/WebPage"
+import WebPage from "./src/components/WebPage"
 import ErrorPage from "./src/pages/ErrorPage"
+import useDetectDevice from "./src/customHooks/useDetectDevice"
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Header />,
+        element: <WebPage />,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -23,6 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'contact',
+                // index: true,
                 element: <Contact />,
             },
             {
@@ -35,6 +38,7 @@ const router = createBrowserRouter([
 ]);
 
 export default function App(){
+    useDetectDevice()
     return(
         <RouterProvider router={router} />
     )
