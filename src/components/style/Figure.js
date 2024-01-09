@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 const Container = styled.div`
         position: absolute;
         left: 0;
-        /* top: 20px; */
+        
         ${props => props.top ? `top: ${props.top};` : ""}
         z-index: -1;
     `
@@ -28,6 +28,7 @@ const Triangle2 = styled.div`
 export default function Figure({color,invert,size,top}){
     const device = useSelector(state => state.device.data)
     const width = (device == "phone" ? "100vw" : device == "tablet" ? "100vw" : "99.13vw");
+    
     return(
         <Container top={top}>
             <Triangle w={width} size={size} invert={invert} backColor={color} />

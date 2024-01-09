@@ -2,11 +2,13 @@ import ListItem from "./ListItem"
 import { useSelector } from "react-redux"
 import H3 from "./style/H3"
 import styled from "styled-components"
+import { ProjectPageContent } from "../data/ProjectPageContent"
 
 export default function MyRole(){
     const project = useSelector(state => state.project.data)
+    const lang = useSelector(state => state.language.data)
 
-    const roleInProject = project.myRoleInProject.map((role, i) => ( <ListItem key={i} text={role} /> ))
+    const roleInProject = project[lang].myRoleInProject.map((role, i) => ( <ListItem key={i} text={role} /> ))
 
     const device = useSelector(state => state.device.data)
 
@@ -21,7 +23,7 @@ export default function MyRole(){
     
     return(
         <MyRoleContainer>
-            <H3 device={device}>My role in this project</H3>
+            <H3 device={device}>{ProjectPageContent[lang].myRole}</H3>
             <Ul role="list">
                 {roleInProject}
             </Ul>

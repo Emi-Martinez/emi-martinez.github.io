@@ -32,7 +32,6 @@ export default function TechnologyCard({technology}){
 
     return(
         <CardContainer>
-            {/* src={`projects/${project.imgsURL[0]}`} */}
             <img src={imgTechUrl}></img>
             <H6 device={device} margin-top="16px;">{technology.name}</H6>
         </CardContainer>

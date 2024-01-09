@@ -2,8 +2,10 @@ import styled from "styled-components"
 import H3 from "./style/H3"
 import Paragraph from "./style/Paragraph"
 import { useSelector } from "react-redux"
+import { aboutMePageContent } from "../data/aboutMePageContent"
 
 export default function AboutMeHeroArea(){
+    const lang = useSelector(state => state.language.data)
     const ProfileImg = styled.img`
         object-fit: cover;
         width: 337px;
@@ -30,10 +32,10 @@ export default function AboutMeHeroArea(){
         <ProfileContainer device={device}>
             <ProfileImg src="projects/imgs/profile/Profile-photo.jpg" role="myImg" />
             <ProfileTextContainer device={device}>
-                <H3 device={device} gradiant="true" bold="true" margin-bottom={myDescriptionName}>I’m Emiliano Martinez</H3>
-                <Paragraph device={device} margin-bottom={myDescriptionMargin}>A freelancer web developer, passionate about computing and i’m into it since the high school.</Paragraph>
-                <Paragraph device={device} margin-bottom={myDescriptionMargin}>I help people to build and fix their web sites in the shortest time posible with the best quality.</Paragraph>
-                <Paragraph device={device} margin-bottom={myDescriptionMargin}>If you decide to require my services i will make your needs my priorities.</Paragraph>
+                <H3 device={device} gradiant="true" bold="true" margin-bottom={myDescriptionName}>{aboutMePageContent[lang].myDescriptionName}</H3>
+                <Paragraph device={device} margin-bottom={myDescriptionMargin}>{aboutMePageContent[lang].myDescription1}</Paragraph>
+                <Paragraph device={device} margin-bottom={myDescriptionMargin}>{aboutMePageContent[lang].myDescription2}</Paragraph>
+                <Paragraph device={device} margin-bottom={myDescriptionMargin}>{aboutMePageContent[lang].myDescription3}</Paragraph>
             </ProfileTextContainer>
         </ProfileContainer>
     )

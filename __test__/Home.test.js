@@ -12,7 +12,6 @@ describe('Home Page Hero Area tests',()=>{
         render(<BrowserRouter><Home /></BrowserRouter>)
 
         const txt = screen.getByText('Hello!, I’m Emiliano')
-        // console.log("TagName: "+txt.tagName)
     })
 
     it('It should render "Freelance Web Developer" text',()=>{

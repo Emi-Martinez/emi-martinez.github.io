@@ -21,10 +21,7 @@ module.exports = (env,argv) => {
                 ] }
             }        
     }
-    // const cssLoader = {
-    //     test: /\.css$/i,
-    //     use: [ 'style-loader', 'css-loader' ]
-    // }
+
     const imgLoader= {
         test: /\.(png|jpg|jpeg|gif)$/i,
         exclude: path.resolve(__dirname, 'node_modules'),
@@ -34,7 +31,7 @@ module.exports = (env,argv) => {
         test: /\.svg$/,
         use:['@svgr/webpack']
     }
-    const rules = [ babel,imgLoader,svgLoader]//cssLoader,svgLoader
+    const rules = [ babel,imgLoader,svgLoader]
     
     return {
         mode: mode,

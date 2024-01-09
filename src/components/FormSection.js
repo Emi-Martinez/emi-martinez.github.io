@@ -5,8 +5,10 @@ import H6 from "./style/H6"
 import styled from "styled-components"
 import { useTheme } from "styled-components"
 import { useSelector } from "react-redux"
+import { contactPageContent } from "../data/contactPageContent"
 
 export default function FormSection(){
+    const lang = useSelector(state => state.language.data)
     const theme = useTheme()
     const device = useSelector(state => state.device.data)
 
@@ -24,9 +26,9 @@ export default function FormSection(){
     return(
         <FormSectContainer>
             <TextContainer>
-                <H3 device={device} bold="true" margin-bottom={textInternalMargin}>You need a developer?</H3> {/* bold */}
-                <Paragraph device={device} margin-bottom={textInternalMargin}>Use the contact form to give me as much detail as possible and i’ll answer you as soon as i can.</Paragraph>
-                <Paragraph device={device} margin-bottom={textInternalMargin}>Alternatively, get in touch with me using the information below.</Paragraph>
+                <H3 device={device} bold="true" margin-bottom={textInternalMargin}>{contactPageContent[lang].formTitle}</H3>
+                <Paragraph device={device} margin-bottom={textInternalMargin}>{contactPageContent[lang].formDesc1}</Paragraph>
+                <Paragraph device={device} margin-bottom={textInternalMargin}>{contactPageContent[lang].formDesc2}</Paragraph>
                 <H6 device={device} color={theme.primaryColor}>emi.martinez9696@gmail.com</H6>
             </TextContainer>
             <ContactForm />

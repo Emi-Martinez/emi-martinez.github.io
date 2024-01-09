@@ -3,8 +3,10 @@ import H1 from "./style/H1";
 import H3 from "./style/H3";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import {homePageContent} from "../data/homePageContent"
 
 export default function HomeHeroArea(){
+    const lang = useSelector(state => state.language.data)
     const Container = styled.div`
         padding: ${props => props.device == "phone" ? "72px 16px 136px" : props.device == "tablet" ? "80px 144px 156px" : "80px 256px 256px"};
         display:flex;
@@ -17,9 +19,9 @@ export default function HomeHeroArea(){
 
     return(
         <Container device={device}>
-            <H3 device={device} gradiant="true">Hello!, I’m Emiliano</H3>
-            <H1 device={device} margin={h1Margin}>Freelance Web Developer</H1>
-            <Paragraph device={device} text-align="center">If you’re looking for a web developer how can help to develop or fix your web, you have found the right one!</Paragraph>
+            <H3 device={device} gradiant="true">{homePageContent[lang].welcomeMsn}</H3>
+            <H1 device={device} margin={h1Margin}>{homePageContent[lang].title}</H1>
+            <Paragraph device={device} text-align="center">{homePageContent[lang].myDescription}</Paragraph>
         </Container>
     );
 }

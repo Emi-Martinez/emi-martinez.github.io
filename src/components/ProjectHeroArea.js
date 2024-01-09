@@ -7,6 +7,7 @@ import styled from "styled-components"
 export default function ProjectHeroArea(){
     const project = useSelector(state => state.project.data)
     const device = useSelector(state => state.device.data)
+    const lang = useSelector(state => state.language.data)
 
     const ProjectTextContainer = styled.div`
         margin: ${device == "phone" ? "0px 16px" : device == "tablet" ? "0px 56px" : "0px 80px"};
@@ -17,8 +18,8 @@ export default function ProjectHeroArea(){
         <div>
             <Carousel />
             <ProjectTextContainer>
-                <H4 device={device} margin-bottom="24px">{project.name}</H4>
-                <Paragraph device={device}>{project.description}</Paragraph>
+                <H4 device={device} margin-bottom="24px">{project[lang].name}</H4>
+                <Paragraph device={device}>{project[lang].description}</Paragraph>
             </ProjectTextContainer>
         </div>
     )

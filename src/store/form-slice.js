@@ -4,7 +4,7 @@ const formSlice = createSlice({
     name: "form",
     initialState:{
         data:{
-            direction:"https://formsubmit.co/24c689f35f8f5985e3cefe17edb7dbf5",
+            direction:"https://formsubmit.co/c04172763f95f3497e25e3abe0bbe44d",
             name: undefined,
             emailAdress: undefined,
             projectDetails: undefined,

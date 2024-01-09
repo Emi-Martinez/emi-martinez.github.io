@@ -4,8 +4,10 @@ import Paragraph from "./style/Paragraph"
 import H7 from "./style/H7"
 import { useTheme } from "styled-components"
 import { useSelector } from "react-redux"
+import { contactPageContent } from "../data/contactPageContent"
 
 export default function ContactHeroArea(){
+    const lang = useSelector(state => state.language.data)
     const theme = useTheme()
     const device = useSelector(state => state.device.data)
     
@@ -27,8 +29,8 @@ export default function ContactHeroArea(){
 
     return(
         <ContactHAContainer>
-            <H4 device={device} margin-bottom="24px;">I’m currently available for freelance work</H4>
-            <Paragraph device={device} margin-bottom="24px;">If you’re looking for a developer how gets your project done, write me.</Paragraph>
+            <H4 device={device} margin-bottom="24px;">{contactPageContent[lang].heroAreatitle}</H4>
+            <Paragraph device={device} margin-bottom="24px;">{contactPageContent[lang].heroAreaDesc}</Paragraph>
             <H7 device={device} {...emailStyle} >emi.martinez9696@gmail.com</H7>
         </ContactHAContainer>
     )

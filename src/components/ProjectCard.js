@@ -9,6 +9,7 @@ import { useSelector } from "react-redux"
 
 export default function ProjectCard({project,index}){
     const theme = useTheme()
+    const lang = useSelector(state => state.language.data)
 
     const invert = (index)=>{
         if (index % 2 != 0){
@@ -55,13 +56,13 @@ export default function ProjectCard({project,index}){
     `
     const device = useSelector(state => state.device.data)
     const invertImgAndText = ( device == "phone" ? "" : device == "tablet" ? invert(index) : invert(index) )
-    // const 
+
     return(
         <CardContainer device={device} role="projectCard">
             <Img device={device} src={`projects/${project.imgsURL[0]}`} role="projectImg" invert={invertImgAndText} />
             <CardTextContainer device={device} invert={invertImgAndText}>
-                <HeadingContainer device={device}><H5 device={device} >{project.name}</H5></HeadingContainer>
-                <Paragraph device={device} color={theme.black}>{project.description}</Paragraph>
+                <HeadingContainer device={device}><H5 device={device} >{project[lang].name}</H5></HeadingContainer>
+                <Paragraph device={device} color={theme.black}>{project[lang].description}</Paragraph>
                 <H6 device={device} margin-top="24px"><HeadLink to={`/projects/${index}`}>Learn more ...</HeadLink></H6>
             </CardTextContainer>
             <Figure color={project.projectColor} invert={invert(index)}/>

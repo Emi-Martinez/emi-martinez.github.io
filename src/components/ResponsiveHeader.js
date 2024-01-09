@@ -6,11 +6,14 @@ import { useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useCallback } from "react"
+import { headerContent } from "../data/HeaderContent"
+import Language from "./Language"
 
 export default function ResponsiveHeader(){
     const [menuActivated, setMenuActivated] = useState(false)
     const device = useSelector(state => state.device.data)
     const path = useLocation().pathname
+    const lang = useSelector(state => state.language.data)
 
     const Menu = styled(HeaderMenu)`
         width: 32px;
@@ -20,6 +23,8 @@ export default function ResponsiveHeader(){
 
     const HeaderContainer = styled.div`
         margin: 24px 16px;
+        display: flex;
+        justify-content: space-between;
     `
     const MenuButton = styled.button`
         margin: 0;
@@ -35,6 +40,8 @@ export default function ResponsiveHeader(){
         width: 100%;
         height: 110%;
         overflow: hidden;
+
+        z-index: 1;
     `
     const MenuColumn = styled.div`
         position: absolute;
@@ -44,6 +51,8 @@ export default function ResponsiveHeader(){
         width: fit-content;
         height: 100%;
         padding: 32px 64px 0px 16px;
+
+        z-index: 1;
     `
     const preventDefault = useCallback((e)=>{
         e.preventDefault()
@@ -64,17 +73,18 @@ export default function ResponsiveHeader(){
     return(
         menuActivated == true ?
         <>
-        <MenuBackground onClick={onClickMenuBackgroundHandler} />
-        <MenuColumn >
-        <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/' ? 'true' : ""} to="/">Home</HeadLink></H7>
-        <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/about' ? 'true' : ""} to="/about">About</HeadLink></H7>
-        <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/contact' ? 'true' : ""} to="/contact">Contact</HeadLink></H7>
-        <H7 device={device} variant="primary">emi.martinez9696@gmail.com</H7>
-        </MenuColumn> 
-    </>
+            <MenuBackground onClick={onClickMenuBackgroundHandler} />
+            <MenuColumn >
+                <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/' ? 'true' : ""} to="/">{headerContent[lang].home}</HeadLink></H7>
+                <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/about' ? 'true' : ""} to="/about">{headerContent[lang].about}</HeadLink></H7>
+                <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/contact' ? 'true' : ""} to="/contact">{headerContent[lang].contact}</HeadLink></H7>
+                <H7 device={device} variant="primary">emi.martinez9696@gmail.com</H7>
+            </MenuColumn> 
+        </>
         :
         <HeaderContainer>
             <MenuButton onClick={onClickMenuHandler}><Menu  /></MenuButton>
+            <Language />
         </HeaderContainer>
     )
 }
