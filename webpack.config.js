@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const CopyPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 // const Dotenv = require('dotenv-webpack')
 
 module.exports = (env,argv) => {
@@ -42,8 +42,8 @@ module.exports = (env,argv) => {
             clean: cleanIfDev
         },
         module: { rules },
-        plugins: [ new HtmlWebpackPlugin({template:'./src/index.html'})], //new Dotenv(),
-        // new CopyPlugin({ patterns: [ { from: path.resolve(__dirname, './public') } ] }) 
+        plugins: [ new HtmlWebpackPlugin({template:'./src/index.html'}),new CopyPlugin({ patterns: [ { from: path.resolve(__dirname, './public') } ] })], //new Dotenv(),
+        
         devtool: sourceMap,
         // optimization: {
         //     runtimeChunk: 'single',
