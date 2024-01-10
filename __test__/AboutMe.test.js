@@ -47,7 +47,7 @@ describe('About Me Page - Benefits Section tests',()=>{
         render(<AboutMe />)
 
         const svgs = screen.getByRole('main').getElementsByTagName('svg').length
-        console.log(svgs[0])
+        
         expect(svgs).toBe(3)
     })
 

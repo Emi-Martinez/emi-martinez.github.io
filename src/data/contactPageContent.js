@@ -23,7 +23,13 @@ export const contactPageContent = {
         formTimelineLabel: "Your Timeline",
         formTimelinePlaceHolder: "E.g:3-4 Months",
 
-        btnSend: "Send message"
+        errorMessage:"All input fields should be completed",
+
+        btnSend: "Send message",
+
+        modalTitle: "Thanks for get in touch!",
+        modalText: "I will aswer you as soon as i can.",
+        modalBtnText: "Done!"
     },
     es:{
         heroAreatitle:"Actualmente estoy disponible para trabajar como freelancer",
@@ -49,6 +55,12 @@ export const contactPageContent = {
         formTimelineLabel: "Duración del Proyecto",
         formTimelinePlaceHolder: "Ej:3-4 Meses",
 
-        btnSend: "Enviar mensaje"
+        errorMessage:"Todos los campos deben estar completos",
+
+        btnSend: "Enviar mensaje",
+
+        modalTitle: "¡Gracias por ponerte en contacto!",
+        modalText: "Te responderé tan pronto como pueda.",
+        modalBtnText: "¡Listo!"
     }
 }

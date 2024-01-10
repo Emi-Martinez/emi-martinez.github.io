@@ -10,18 +10,24 @@ import TextArea from "./style/TextArea"
 import Button from "./style/Button"
 import styled from "styled-components"
 import H6 from "./style/H6"
+import EmailSendModal from "./EmailSendModal"
+import ErrorMessage from "./ErrorMessage"
 import { contactPageContent } from "../data/contactPageContent"
+import { useRef, useState } from "react"
 
 const ArrowIcon = styled(SendArrow)`
     margin-left: 8px;
 `
 
 export default function ContactForm(){
+    const ref = useRef(1)
     const lang = useSelector(state => state.language.data)
     const form = useSelector(state => state.form.data)
     const name = useSelector(state => state.form.data.name)
     const dispatch = useDispatch()
     const theme = useTheme()
+
+    const [errorMessage,setErrorMessage] = useState(false)
 
     const handleChange = (e)=>{
         const {value,name} = e.target
@@ -31,14 +37,28 @@ export default function ContactForm(){
 
     const handleClick = (e)=>{
         e.preventDefault()
-        dispatch(sendForm(form))
+        
+        if(form.name != "" &&
+        form.emailAdress != "" &&
+        form.projectDetails != "" &&
+        form.budgetRange != "" &&
+        form.timeline != ""){
+            dispatch(sendForm(form))
+            setErrorMessage(state => state = false)
+            ref.current.showModal()
+            ref.current.style.display = "grid"
+            dispatch(formActions.resetForm())
+        }else{
+            setErrorMessage(state => state = true)
+        }
     }
 
     const device = useSelector(state => state.device.data)
     const inputContainerMarginBottom = (device == "phone" ? "24px" : device == "tablet" ? "24px" : "32px");
     return(
         <form>
-            <InputContainer device={device} margin-bottom={inputContainerMarginBottom} >
+            <EmailSendModal refer={ref} />
+            <InputContainer device={device} margin-bottom={inputContainerMarginBottom} id="inpt" >
                 <InputLabel>
                     <H6 device={device} font-weight="bold" color={theme.black} margin-bottom="8px" >{contactPageContent[lang].formNameLabel}</H6>
                     <Input device={device} name="name" placeholder={contactPageContent[lang].formNamePlaceHolder} onChange={handleChange} value={name} />
@@ -62,6 +82,7 @@ export default function ContactForm(){
                     <Input device={device} name="timeline" placeholder={contactPageContent[lang].formTimelinePlaceHolder} onChange={handleChange} value={form.timeline}/>
                 </InputLabel>
             </InputContainer>
+            {errorMessage ? <ErrorMessage /> :  null}
             <Button device={device} onClick={handleClick}> 
                 {contactPageContent[lang].btnSend}
                 <ArrowIcon id="arrow"/>

@@ -19,7 +19,6 @@ export const sendForm = (form)=>{
 
         try {
             const r = await postHandler()
-            // console.log(r)
         } catch (error) {
             console.log(error)
         }

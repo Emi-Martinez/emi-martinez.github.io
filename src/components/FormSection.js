@@ -6,6 +6,7 @@ import styled from "styled-components"
 import { useTheme } from "styled-components"
 import { useSelector } from "react-redux"
 import { contactPageContent } from "../data/contactPageContent"
+import EmailSendModal from "./EmailSendModal"
 
 export default function FormSection(){
     const lang = useSelector(state => state.language.data)

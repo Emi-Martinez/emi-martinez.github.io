@@ -5,11 +5,11 @@ const formSlice = createSlice({
     initialState:{
         data:{
             direction:"https://formsubmit.co/c04172763f95f3497e25e3abe0bbe44d",
-            name: undefined,
-            emailAdress: undefined,
-            projectDetails: undefined,
-            budgetRange: undefined,
-            timeline: undefined 
+            name: "",
+            emailAdress: "",
+            projectDetails: "",
+            budgetRange: "",
+            timeline: "" 
         }
     },
     reducers:{
@@ -20,11 +20,11 @@ const formSlice = createSlice({
         },
         resetForm(state){
             state.data = {
-                name: undefined,
-                emailAdress: undefined,
-                projectDetails: undefined,
-                budgetRange: undefined,
-                timeline: undefined
+                name: "",
+                emailAdress: "",
+                projectDetails: "",
+                budgetRange: "",
+                timeline: ""
             }
         }
     }
