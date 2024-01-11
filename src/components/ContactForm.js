@@ -43,8 +43,9 @@ export default function ContactForm(){
         form.projectDetails != "" &&
         form.budgetRange != "" &&
         form.timeline != ""){
-            dispatch(sendForm(form))
             setErrorMessage(state => state = false)
+            dispatch(sendForm(form))
+            
             ref.current.showModal()
             ref.current.style.display = "grid"
             dispatch(formActions.resetForm())
