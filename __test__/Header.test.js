@@ -26,9 +26,9 @@ describe('App Render',()=>{
         expect(link.tagName).toBe('A')
     })
 
-    it('it should render "emi.martinez9696@gmail.com" text',()=>{
+    it('it should render "emi.martinez.se@gmail.com" text',()=>{
         render(<BrowserRouter><Header /></BrowserRouter>)
 
-        screen.getByText('emi.martinez9696@gmail.com')
+        screen.getByText('emi.martinez.se@gmail.com')
     })
 })

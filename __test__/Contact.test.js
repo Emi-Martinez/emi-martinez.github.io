@@ -17,10 +17,10 @@ describe('Contact Page - Hero Area tests',()=>{
         screen.getByText('If you’re looking for a developer how gets your project done, write me.')
     })
 
-    it('It should render "emi.martinez9696@gmail.com" text',()=>{
+    it('It should render "emi.martinez.se@gmail.com" text',()=>{
         render(<Contact />)
 
-        const emails = screen.getAllByText('emi.martinez9696@gmail.com').length
+        const emails = screen.getAllByText('emi.martinez.se@gmail.com').length
         expect(emails).toBeGreaterThanOrEqual(1)
     })
 })
@@ -90,10 +90,10 @@ describe('Contact Page - Contact Form Section tests',()=>{
         screen.getByText('Alternatively, get in touch with me using the information below.')
     })
         
-    it('It should render a 2th "emi.martinez9696@gmail.com" text',()=>{
+    it('It should render a 2th "emi.martinez.se@gmail.com" text',()=>{
         render(<Contact />)
 
-        const emails = screen.getAllByText('emi.martinez9696@gmail.com').length
+        const emails = screen.getAllByText('emi.martinez.se@gmail.com').length
         expect(emails).toBeGreaterThanOrEqual(2)
     })
 })

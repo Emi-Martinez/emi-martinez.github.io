@@ -39,7 +39,7 @@ export default function Header(){
             </LinksContainer>
             <LangEmailContainer>
                 <Language />
-                <H7 device={device} variant="primary">emi.martinez9696@gmail.com</H7>
+                <H7 device={device} variant="primary">emi.martinez.se@gmail.com</H7>
             </LangEmailContainer>
         </HeaderContainer>
     )

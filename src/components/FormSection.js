@@ -30,7 +30,7 @@ export default function FormSection(){
                 <H3 device={device} bold="true" margin-bottom={textInternalMargin}>{contactPageContent[lang].formTitle}</H3>
                 <Paragraph device={device} margin-bottom={textInternalMargin}>{contactPageContent[lang].formDesc1}</Paragraph>
                 <Paragraph device={device} margin-bottom={textInternalMargin}>{contactPageContent[lang].formDesc2}</Paragraph>
-                <H6 device={device} color={theme.primaryColor}>emi.martinez9696@gmail.com</H6>
+                <H6 device={device} color={theme.primaryColor}>emi.martinez.se@gmail.com</H6>
             </TextContainer>
             <ContactForm />
         </FormSectContainer>

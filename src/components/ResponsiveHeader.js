@@ -78,7 +78,7 @@ export default function ResponsiveHeader(){
                 <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/' ? 'true' : ""} to="/">{headerContent[lang].home}</HeadLink></H7>
                 <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/about' ? 'true' : ""} to="/about">{headerContent[lang].about}</HeadLink></H7>
                 <H7 device={device} padding-bottom="32px" onClick={onClickMenuBackgroundHandler}><HeadLink hoverAct="true" act={path == '/contact' ? 'true' : ""} to="/contact">{headerContent[lang].contact}</HeadLink></H7>
-                <H7 device={device} variant="primary">emi.martinez9696@gmail.com</H7>
+                <H7 device={device} variant="primary">emi.martinez.se@gmail.com</H7>
             </MenuColumn> 
         </>
         :

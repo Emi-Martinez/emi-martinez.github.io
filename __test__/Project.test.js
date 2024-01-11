@@ -174,10 +174,10 @@ describe('Project Page "Footer - Contact Me Redirection" section tests',()=>{
         screen.getByText('If you are looking for a developer which can become your design to reality, or solve some functionality issue on an existing web. Contact me!')
     })
 
-    it('It should render Footer e-mail: "emi.martinez9696@gmail.com"',()=>{
+    it('It should render Footer e-mail: "emi.martinez.se@gmail.com"',()=>{
         render(<Project />)
 
-        screen.getByText('emi.martinez9696@gmail.com')
+        screen.getByText('emi.martinez.se@gmail.com')
     })
 
     it('It should render "Got a project in mind? Contact me!"',()=>{

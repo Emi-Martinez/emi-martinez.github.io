@@ -31,7 +31,7 @@ export default function ContactHeroArea(){
         <ContactHAContainer>
             <H4 device={device} margin-bottom="24px;">{contactPageContent[lang].heroAreatitle}</H4>
             <Paragraph device={device} margin-bottom="24px;">{contactPageContent[lang].heroAreaDesc}</Paragraph>
-            <H7 device={device} {...emailStyle} >emi.martinez9696@gmail.com</H7>
+            <H7 device={device} {...emailStyle} >emi.martinez.se@gmail.com</H7>
         </ContactHAContainer>
     )
 }

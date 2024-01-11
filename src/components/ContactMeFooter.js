@@ -23,7 +23,7 @@ export default function ContactMeFooter(){
         <FooterContainer device={device} role="footer">
             <H4 device={device} margin-bottom="32px">{footerContent[lang].title}</H4>
             <Paragraph device={device}>{footerContent[lang].description}</Paragraph>
-            <H7 device={device} margin-top="32px" variant="primary">emi.martinez9696@gmail.com</H7>
+            <H7 device={device} margin-top="32px" variant="primary">emi.martinez.se@gmail.com</H7>
             <LinkButton device={device} to={`/contact`}><H6 btnText="true" device={device} >{footerContent[lang].btnText}</H6></LinkButton>
         </FooterContainer>
     )
